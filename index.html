@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Jobe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!---------------------Navbar------------------>
+<nav class="navbar">
+    <div class="navbar-left">
+        <a href="index.html" class="logo"><img src="images/CoolJob.png"></a>
+    </div>
+    <div class="navbar-center">
+        <ul class="navbar-menu">
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/home.png"><span>Home</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/people.png"><span>People</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/jobs.png"><span>Jobs</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/message.png"><span>Messaging</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/notification.png"><span>Notification</span></a></li>
+        </ul>  
+    </div>
+    <div class="navbar-right">
+        <button id="myButton1" class="button button1">Sign up</a></button>
+        <button id="myButton2" class="button button2">Log in</a></button>
+    </div>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
+<!----------------Container with search button and image---------------->
+<div class="container">
+    <div class="left-sidebar">
+        <h1 class="text">Discover your <br> dream jobs</h1>
+        <div class="search-box">
+            <img src="images/search.png">
+            <input type ="text" placeholder="Search job" onclick="newWindow()">
+        </div>
+        <h1 class="text">Best place to <br> find candidates</h1>
+        <div class="search-box">
+            <img src="images/search.png">
+            <input type ="text" placeholder="Search candidates" onclick="newWindow1()">
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <img class="pict" src="images/pict.svg">
+    </div>
+</div>
+<!--------------------Footer------------------------>
+<div class="footer">
+    <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <ul class="list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p class="copyright">CoolJob Copyright &copy; 2022</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
