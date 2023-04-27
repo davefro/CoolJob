@@ -1,0 +1,52 @@
+{% extends "baseform.html" %}
+
+ <!-------------Login Form---------------->
+{% block content %}
+  <form class="form1" action="/loginform" autocomplete="off" method="post">
+    {{ form.csrf_token }}
+      <!-- Email input -->
+      {% if error_statement %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ error_statement }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      <a href="{{url_for('index')}}" class="logo"><img src="{{url_for('static', filename='images/CoolJob.png')}}"></a>
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Log in!</legend>
+
+        <div class="form-group">
+          {{form.email.label(class="form-control-label")}}
+          {% if form.email.errors %}
+          {{form.email(class="form-control form-control-lg is-invalid")}}
+            {% for error in form.email.errors %}
+              <span>{{error}}</span>
+            {%endfor%}
+            {% else %}
+            {{form.email(class="form-control form-control-lg")}}
+          {%endif%}
+      
+        <!-- Password input -->
+        <div class="form-group mt-4">
+          {{form.password.label(class="form-control-label")}}
+          {% if form.password.errors %}
+          {{form.password(class="form-control form-control-lg is-invalid")}}
+            {% for error in form.password.errors %}
+              <span>{{error}}</span>
+            {%endfor%}
+            {% else %}
+            {{form.password(class="form-control form-control-lg")}}
+          {%endif%}
+      
+        <!-- Submit button -->
+        <div class="form-group mt-4">
+          {{form.submit(class="btn btn-success")}}
+        </div>
+      
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not a member? <a href="{{url_for('registration')}}">Register</a></p>
+        </div>
+      </fieldset>
+  </form>
+{% endblock %}

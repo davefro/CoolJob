@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Jobe</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+        <a href="{{url_for('index')}}" class="logo"><img src="{{url_for('static', filename='images/CoolJob.png')}}"></a>
+    </div>
+    <div class="navbar-center">
+        <ul class="navbar-menu">
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="{{url_for('static', filename='images/Home.png')}}"><span>Home</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="{{url_for('static', filename='images/People.png')}}"><span>People</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="{{url_for('static', filename='images/jobs.png')}}"><span>Jobs</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="{{url_for('static', filename='images/message.png')}}"><span>Messaging</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="{{url_for('static', filename='images/Notification.png')}}"><span>Notification</span></a></li>
+        </ul>  
+    </div>
+    <div class="navbar-right">
+        <!-- <button id="myButton1" onclick="NewPage()" class="button button1">Sign up</a></button> -->
+        
+        <a href="{{url_for('index')}}"><button id="myButton2" class="button button2">Logout</button></a>
+    </div>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>    
+
+<div class="container w-50">
+  {% with messages=get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+              <div class="alert alert-{{category}}">
+                  {{message}}
+              </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+</div>
+
+<div class="container">
+  <h2>Welcome on your dashboard</h2>         
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ firstname }}</td>
+        <td>{{ lastname }}</td>
+        <td>{{ email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+</html>
+
+

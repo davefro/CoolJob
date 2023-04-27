@@ -1,39 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool Jobe</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <!-----------------------Navbar------------------>
-<nav class="navbar">
-    <div class="navbar-left">
-        <a href="index.html" class="logo"><img src="images/CoolJob.png"></a>
-    </div>
-    <div class="navbar-center">
-        <ul class="navbar-menu">
-            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/home.png"><span>Home</span></a></li>
-            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/people.png"><span>People</span></a></li>
-            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/jobs.png"><span>Jobs</span></a></li>
-            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/message.png"><span>Messaging</span></a></li>
-            <li class="navbar-item"><a class="navbar-link" href="#"><img src="images/notification.png"><span>Notification</span></a></li>
-        </ul>  
-    </div>
-    <div class="navbar-right">
-        <button id="myButton1" class="button button1">Sign up</a></button>
-        <button id="myButton2" class="button button2">Log in</a></button>
-    </div>
-    <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-</nav>
+{% extends 'base.html' %}
 <!------------------Student Profile----------------->
+{% block content %}
 <div class="student-container">
     <div class="student-profile">
         <div class="profile-container">
@@ -41,7 +8,7 @@
                 <img src="https://xsgames.co/randomusers/avatar.php?g=male&random0.23" class="profile-pic">
                 <h1>John Helen</h1>
                 <b>Web developer at Google</b>
-                <p>California, United States &middot; <a href="contactForm.html">Contact info</a></p>
+                <p>California, United States &middot; <a href="{{url_for('contactForm')}}">Contact info</a></p>
             </div>
         </div>
     </div>
@@ -52,7 +19,7 @@
     <div class="profile-descrp">
         <h2>Experience</h2>
         <div class="profile-descrp-row">
-            <img src="images/microsoft.png">
+            <img src="{{url_for('static', filename='images/Microsoft.png')}}">
             <div>
                 <h3>Front-End Developer</h3>
                 <b>Microsoft &middot; Full-time</b>
@@ -61,7 +28,7 @@
             </div>
         </div>
         <div class="profile-descrp-row">
-            <img src="images/slack.png">
+            <img src="{{url_for('static', filename='images/Slack.png')}}">
             <div>
                 <h3>Full Stack Developer</h3>
                 <b>Slack &middot; Full-time</b>
@@ -70,7 +37,7 @@
             </div>
         </div>
         <div class="profile-descrp-row">
-            <img src="images/google.png">
+            <img src="{{url_for('static', filename='images/google.png')}}">
             <div>
                 <h3>Web Developer</h3>
                 <b>Google Inc &middot; Full-time</b>
@@ -82,7 +49,7 @@
     <div class="profile-descrp">
         <h2>Education</h2>
         <div class="profile-descrp-row">
-            <img src="images/stanford.png">
+            <img src="{{url_for('static', filename='images/Stanford.png')}}">
             <div>
                 <h3>Stanford University</h3>
                 <b>BSEE, Electrical Engineering</b>
@@ -91,7 +58,7 @@
             </div>
         </div>
         <div class="profile-descrp-row">
-            <img src="images/north.png">
+            <img src="{{url_for('static', filename='images/North.png')}}">
             <div>
                 <h3>Nothwestern University</h3>
                 <b>Computer Science</b>
@@ -100,9 +67,9 @@
             </div>
         </div>
         <div class="profile-descrp-row">
-            <img src="images/mit.png">
+            <img src="{{url_for('static', filename='images/mit.png')}}">
             <div>
-                <h3>Harvard University</h3>
+                <h3>MiT University</h3>
                 <b>Senior High School</b>
                 <b>2005 - 2015</b>
                 <hr>
@@ -129,6 +96,4 @@
         <a href="#" class="language-btn">Spanish</a>
     </div>
 </div>
-<script src="script.js"></script>
-</body>
-</html>
+{% endblock %}

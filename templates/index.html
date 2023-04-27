@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+<!----------------Container with search button and image---------------->
+
+{% block content %}
+<div class="container">
+    <div class="left-sidebar">
+        <h1 class="text">Discover your <br> dream jobs</h1>
+        <div class="search-box">
+            <img src="{{url_for('static', filename='images/search.png')}}">
+            <input type ="text" placeholder="Search job" onclick="newWindow()">
+        </div>
+        <h1 class="text">Best place to <br> find candidates</h1>
+        <div class="search-box">
+            <img src="{{url_for('static', filename='images/search.png')}}">
+            <a href="{{url_for('studentList')}}"><input type ="text" placeholder="Search candidates"></a>
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <img class="pict" src="{{url_for('static', filename='images/pict.svg')}}">
+    </div>
+</div>
+{% endblock %}

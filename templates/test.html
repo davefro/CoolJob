@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Jobe</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!---------------Sign up Form-------------------->
+<form class="form2" action="/signup" autocomplete="off" method="post">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <a href="{{url_for('index')}}" class="logo"><img src="{{url_for('static', filename='images/CoolJob.png')}}"></a>
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+      You have been successfully registered on the website
+    </div>
+    {% endif %}
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          {{form.hidden_tag()}}
+          <input type="text" name="firstname" id="firstname" class="form-control" required>
+          <label for="FirstName" class="form-label">First name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" name="lastname" id="lastname" class="form-control" required>
+          <label for="LastName" class="form-label">Last name</label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" name="email" id="email" class="form-control" required>
+      <label for="email" class="form-label">Email address</label>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" name="password" id="password" class="form-control" required>
+      <label for="Password" class="form-label">Password</label>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" value="Signup" class="btn btn-success btn-block mb-4">Sign up</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>or sign up with:</p>
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+  
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+  
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+  
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+</form> 
+
+
+<form class="form2" action="{{ url_for('registration') }}" autocomplete="off" method="post">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='images/CoolJob.png') }}"></a>
+  {% if success %}
+  <div class="alert alert-success" role="alert">
+    You have been successfully registered on the website
+  </div>
+  {% endif %}
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        {{ form.firstname(class="form-control",  id="firstname", placeholder="First name") }}
+        <label class="form-label" name="firstname"  for="firstname"></label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        {{ form.lastname(class="form-control", id="lastname", placeholder="Last name") }}
+        <label class="form-label" for="lastname"></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    {{ form.email(class="form-control", id="email", placeholder="Email address") }}
+    <label class="form-label" for="email"></label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    {{ form.password(class="form-control", id="password", placeholder="Password") }}
+    <label class="form-label" for="password"></label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit"  class="btn btn-success btn-block mb-4">Sign up</button>
+</form>
+
+
+{% block content %}
+  <form class="form2" action="{{ url_for('registration') }}" autocomplete="off" method="post">
+    {{ form.csrf_token }}
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='images/CoolJob.png') }}"></a>
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+      You have been successfully registered on the website
+    </div>
+    {% endif %}
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          {{ form.firstname(class="form-control",  id="firstname", placeholder="First name") }}
+          <label class="form-label" name="firstname"  for="firstname"></label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          {{ form.lastname(class="form-control", id="lastname", placeholder="Last name") }}
+          <label class="form-label" for="lastname"></label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      {{ form.email(class="form-control", id="email", placeholder="Email address") }}
+      <label class="form-label" name="email" for="email"></label>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      {{ form.password(class="form-control", id="password", placeholder="Password") }}
+      <label class="form-label" for="password"></label>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit"  class="btn btn-success btn-block mb-4">Sign up</button>
+    {% with message = get_flashed_messages(with_categories = True) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{category}}">
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </form>
+{% endblock %}
+
+
+
+
+
+  <!-------------Login Form---------------->
+  <form class="form1" action="/login" autocomplete="off" method="post">
+    <!-- Email input -->
+    {% if error_statement %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ error_statement }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <a href="{{url_for('index')}}" class="logo"><img src="{{url_for('static', filename='images/CoolJob.png')}}"></a>
+    <div class="form-outline mb-4">
+      <input type="email" id="email" name="email"  class="form-control"/ required>
+      <label class="form-label" for="email">Email address</label>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="password" name="password" class="form-control"/ required >
+      <label class="form-label" for="password">Password</label>
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="form1" checked />
+          <label class="form-check-label" for="form1"> Remember me </label>
+        </div>
+      </div>
+  
+      <div class="col">
+        <!-- Simple link -->
+        <a href="#!">Forgot password?</a>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" value="login" name="login" class="btn btn-success btn-block mb-4">Sign in</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="{{url_for('registration')}}">Register</a></p>
+      <p>or sign up with:</p>
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+</form>
+
+
+</body>
+</html>
